@@ -1,4 +1,4 @@
-import { updateToken } from "../api/index";
+import { updateToken } from "../index";
 
 class IdleTimer {
   constructor({ timeout, onTimeout }) {

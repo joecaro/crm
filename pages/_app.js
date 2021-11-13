@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { ListContext } from "../components/ListContext/ListContext";
-import IdleTimer from "./auth/IdleTimer";
+import IdleTimer from "./api/auth/IdleTimer";
 import { getList } from "./api/index";
 import NavBar from "../components/NavBar/NavBar";
 import Side from "../components/Side/Side";
 import Head from "next/head";
 import "../styles/globals.css";
-import auth from "./auth/index";
+import auth from "./api/auth/index";
 
 function MyApp({ Component, pageProps }) {
   const [events, setEvents] = useState([]);
