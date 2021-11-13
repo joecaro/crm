@@ -138,9 +138,7 @@ export default function Users() {
       />
     </UsersContainer>
   );
-};
-
-export default Users;
+}
 
 const Modal = ({
   isModal,
