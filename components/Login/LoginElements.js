@@ -7,7 +7,7 @@ export const LoginContainer = styled.section`
   top: 0;
   left: 0;
   background-color: white;
-  background-image: linear-gradient(45deg, #aaa, #fff);
+  background-image: url("https://res.cloudinary.com/joecarothers/image/upload/v1636828025/misc/R_mflf3z.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   z-index: 99;
