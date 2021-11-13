@@ -11,7 +11,7 @@ import {
   TableContainer,
   Title,
 } from "./UsersElements";
-import { getUsers, register } from "../../api";
+import { getUsers, register } from "../../pages/api/index";
 
 export default function Users() {
   const [isModal, setIsModal] = useState(false);
