@@ -1,4 +1,4 @@
-import { updateToken } from "../index";
+import { updateToken } from "../gindex";
 
 class IdleTimer {
   constructor({ timeout, onTimeout }) {
