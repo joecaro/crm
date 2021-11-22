@@ -20,3 +20,20 @@ export const ResetButtonStyles = styled.button`
     background-color: #77ccff;
   }
 `;
+
+export const Toast = styled.div`
+  height: 50px;
+  width: 250px;
+  padding: 1rem;
+  display: grid;
+  place-items: center;
+  border-radius: 0.5rem;
+  background-color: #0d94f5;
+  z-index: 999;
+  color: white;
+  font-weight: 600;
+  position: absolute;
+  top: 25px;
+  left: 50%;
+  transform: translate(-50%, 0);
+`;

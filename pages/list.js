@@ -7,9 +7,5 @@ export default function list() {
 
   const list = router.query.q;
 
-  return (
-    <div style={{ height: "fit-content" }}>
-      <Lists selectedList={list} />
-    </div>
-  );
+  return <Lists selectedList={list} />;
 }

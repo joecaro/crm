@@ -53,3 +53,22 @@ a {
   transform: translate(100px, 0);
   transition: 800ms;
 }
+
+.toast-enter {
+  opacity: 0;
+  transform: translate(0, 50px);
+}
+.toast-enter-active {
+  opacity: 1;
+  transform: translate(0, 0);
+  transition: 1000ms;
+}
+.toast-exit {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+.toast-exit-active {
+  opacity: 0;
+  transform: translate(0, 50px);
+  transition: 1000ms ease-in;
+}

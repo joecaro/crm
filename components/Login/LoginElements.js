@@ -10,7 +10,7 @@ export const LoginContainer = styled.section`
   background-image: url("https://res.cloudinary.com/joecarothers/image/upload/v1636828025/misc/R_mflf3z.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  z-index: 99;
+  z-index: 999;
 `;
 
 export const LoginModal = styled.div`

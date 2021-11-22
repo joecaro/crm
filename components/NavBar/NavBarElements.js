@@ -15,7 +15,7 @@ export const NavContainer = styled.section`
     width: 200px;
   }
   @media (max-width: 768px) {
-    margin-left: ${({ isDisplayed }) => (isDisplayed ? `0` : `-188px`)};
+    margin-left: ${({ isDisplayed }) => (isDisplayed ? `0` : `-200px`)};
   }
   p {
     color: white;
@@ -38,15 +38,15 @@ export const MenuDisplayButton = styled.div`
 `;
 
 export const Logo = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   height: 75px;
   width: 100vw;
+  transition: 0.4s;
   z-index: 11;
   background-color: #ef4737;
-  transition: 0.4s;
   @media (max-width: 768px) {
-    margin-left: ${({ isDisplayed }) => (isDisplayed ? `0` : `-100%`)};
+    left: ${({ isDisplayed }) => (isDisplayed ? `0` : `-200px`)};
     width: 200px;
   }
 `;

@@ -11,7 +11,7 @@ export const SearchBarContainer = styled.section`
   z-index: 15;
   @media (max-width: 768px) {
     z-index: 1;
-    top: 10vh;
+    top: 13vh;
   }
   @media (max-width: 1080px) {
     left: 0;
@@ -44,19 +44,15 @@ export const SearchInput = styled.input`
 
 export const SearchIcon = styled.span`
   position: absolute;
-  height: 30px;
-  width: 30px;
-  margin-right: 445px;
+  height: 26px;
+  width: 26px;
   border-radius: 100%;
   border: ${({ clicked }) => (clicked ? `1px solid #555` : `none`)};
   color: ${({ clicked }) => (clicked ? `#555` : `#fff`)};
-  margin-top: 3px;
   z-index: 15;
   display: flex;
   transition: 0.4s;
-  @media (max-width: 500px) {
-    left: 6%;
-  }
+  transform: translate(-184px, 2px);
   i {
     margin: auto;
   }

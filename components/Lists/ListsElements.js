@@ -1,12 +1,14 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 60%;
+  width: calc(100vw - 400px);
   height: 100vh;
   margin: auto;
+  padding: 0 0 6rem;
   overflow: hidden;
-  @media (max-height: 1200px) {
-    height: 75%;
+  @media (min-width: 1250px) {
+    width: calc(100vw - 500px);
+    padding: 20px;
   }
   @media (max-width: 768px) {
     width: 100vw;
@@ -22,9 +24,6 @@ export const ListsContainer = styled.section`
   flex-wrap: wrap;
   align-content: flex-start;
   overflow-x: visible;
-  @media (max-height: 1200px) {
-    height: 75%;
-  }
 `;
 
 export const Title = styled.h1`

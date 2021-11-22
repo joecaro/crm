@@ -1,8 +1,10 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: `https://jsc-crm.herokuapp.com//`,
+  baseURL: `http://localhost:4000/`,
 });
+
+// https://jsc-crm.herokuapp.com/
 
 // ${process.env.REACT_APP_API_URL}
 
