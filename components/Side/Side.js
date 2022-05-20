@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { addEvent, getEvents } from "../../pages/api/index";
+import { addEvent, deleteEvent, getEvents } from "../../pages/api/index";
 import {
   SideContainer,
   TotalsList,
@@ -10,6 +10,7 @@ import {
   Event,
   EventsContainer,
   EventForm,
+  DeleteButton,
 } from "./SideElements";
 import { CSVLink } from "react-csv";
 import { ListContext } from "../ListContext/ListContext";
@@ -20,6 +21,7 @@ const Side = () => {
   const { list, events, setEvents } = useContext(ListContext);
   const [totals, setTotals] = useState({ notStarted: 0, started: 0, filed: 0 });
   const [isDisplayed, setIsDisplayed] = useState(false);
+  const [waiting, setWaiting] = useState(false);
   const [formValues, setFormValues] = useState({ date: "", title: "" });
 
   const toggleMenu = () => {
@@ -41,6 +43,27 @@ const Side = () => {
     headers: headers,
     filename: `download_${new Date()}.csv`,
   };
+
+  const handleDeleteEvent = (id) => {
+    console.log("attempting delete");
+    if (waiting) return;
+
+    setWaiting(true);
+    try {
+      deleteEvent(id)
+        .then((res) => console.log(res))
+        .then(() => {
+          let newEventList = [...events];
+          let filteredEvents = newEventList.filter((event) => event._id !== id);
+
+          setEvents(filteredEvents);
+          setWaiting(false);
+        });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   //set events
   useEffect(() => {
     getEvents()
@@ -59,32 +82,38 @@ const Side = () => {
   }, []);
 
   //add new event
-  const handleSubmitEvent = (event) => {
+  const handleSubmitEvent = async (event) => {
     event.preventDefault();
     if (formValues.date !== "" && formValues.title !== "") {
       let day = convertToDayStr(formValues.date);
       let date = convertGMTDate(formValues.date);
-      addEvent({
-        title: formValues.title,
-        start: date,
-        end: date,
-        day: day,
-      });
-      let newEvents = [
-        ...events,
-        {
+      try {
+        let res = await addEvent({
           title: formValues.title,
           start: date,
           end: date,
           day: day,
-        },
-      ];
-      setEvents(
-        newEvents.sort((a, b) => {
-          return new Date(a.start) - new Date(b.start);
-        })
-      );
-      setFormValues({ date: "", title: "" });
+        });
+        console.log(res);
+        let newEvents = [
+          ...events,
+          {
+            _id: res.data.event._id,
+            title: formValues.title,
+            start: date,
+            end: date,
+            day: day,
+          },
+        ];
+        setEvents(
+          newEvents.sort((a, b) => {
+            return new Date(a.start) - new Date(b.start);
+          })
+        );
+        setFormValues({ date: "", title: "" });
+      } catch (err) {
+        console.log(err);
+      }
     } else alert("Please Include All Event Fields");
   };
 
@@ -140,6 +169,9 @@ const Side = () => {
           {events.map((event, index) => {
             return (
               <Event key={`${index}+date`}>
+                <DeleteButton onClick={() => handleDeleteEvent(event._id)}>
+                  x
+                </DeleteButton>
                 <h4>{event.title}</h4>
                 <p>{event.day}</p>
               </Event>

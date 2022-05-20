@@ -182,3 +182,8 @@ export const TopBar = styled.div`
     width: 100%;
   }
 `;
+
+export const DeleteButton = styled.button`
+  align-self: flex-end;
+  border: none;
+`;

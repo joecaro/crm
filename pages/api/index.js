@@ -29,3 +29,4 @@ export const updateReport = (id, reportInfo) =>
 export const deleteCommittee = (id) => API.post(`/committees/delete/${id}`);
 export const addEvent = (values) => API.post("/events/add", values);
 export const getEvents = () => API.get("/events");
+export const deleteEvent = (id) => API.post(`/events/delete/${id}`);
