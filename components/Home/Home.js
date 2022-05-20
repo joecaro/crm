@@ -46,7 +46,11 @@ export default function Home() {
   }, []);
   return (
     <HomeContainer>
-      <CSSTransition in={showMessage} classNames='slide-left' unmountOnExit>
+      <CSSTransition
+        in={showMessage}
+        classNames='slide-left'
+        unmountOnExit
+        timeout={100}>
         <TitleCard>FILING CHECK INS</TitleCard>
       </CSSTransition>
       <div
@@ -56,7 +60,11 @@ export default function Home() {
           justifyContent: "center",
           padding: "30px",
         }}>
-        <CSSTransition in={showMessage} classNames='slide-up' unmountOnExit>
+        <CSSTransition
+          in={showMessage}
+          classNames='slide-up'
+          unmountOnExit
+          timeout={100}>
           <Option
             onClick={() => {
               router.push("list?q=monthly");
@@ -64,7 +72,11 @@ export default function Home() {
             Monthly
           </Option>
         </CSSTransition>
-        <CSSTransition in={showMessage} classNames='slide-up' unmountOnExit>
+        <CSSTransition
+          in={showMessage}
+          classNames='slide-up'
+          unmountOnExit
+          timeout={100}>
           <Option
             onClick={() => {
               router.push("list?q=quarterly");
@@ -72,7 +84,11 @@ export default function Home() {
             Quarterly
           </Option>
         </CSSTransition>
-        <CSSTransition in={showMessage} classNames='slide-up' unmountOnExit>
+        <CSSTransition
+          in={showMessage}
+          classNames='slide-up'
+          unmountOnExit
+          timeout={100}>
           <Option
             onClick={() => {
               router.push("list?q=semi-annual");
@@ -81,7 +97,11 @@ export default function Home() {
           </Option>
         </CSSTransition>
       </div>
-      <CSSTransition in={showMessage} classNames='slide-up' unmountOnExit>
+      <CSSTransition
+        in={showMessage}
+        classNames='slide-up'
+        unmountOnExit
+        timeout={100}>
         <EventList>
           <h2>Next 5 Reports Due</h2>
           <ul>

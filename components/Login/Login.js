@@ -5,6 +5,9 @@ import { login } from "../../pages/api/index";
 import jwt from "jsonwebtoken";
 import { useRouter } from "next/router";
 import { ListContext } from "../ListContext/ListContext";
+import styled from "styled-components";
+import { keyframes } from "styled-components";
+import { css } from "styled-components";
 
 const Login = (props) => {
   const [values, setValues] = useState({
@@ -85,9 +88,65 @@ const Login = (props) => {
             )}
           </button>
         </form>
+        <ToolTip>
+          <p className='header'>Demo Credentials</p>
+          <div className='credentials'>
+            <p>Username: test</p>
+            <p>Password: test</p>
+          </div>
+        </ToolTip>
       </LoginModal>
     </LoginContainer>
   );
 };
 
 export default Login;
+
+const animation = keyframes`
+0% {
+  transform: translateY(-90%);
+  opacity: 0;
+}
+75% {
+  transform: translateY(-90%);
+  opacity: 0;
+}
+100% {
+  transform: translateY(-110%);
+  opacity: 1;
+}
+
+
+`;
+const enterAnim = (props) => css`
+  ${animation} 1000ms;
+`;
+
+const ToolTip = styled.div`
+  width: fit-content;
+  background-color: #00000099;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+
+  display: grid;
+  color: #efefef;
+  font-weight: 500;
+  border: 2px solid #bbb;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateY(-110%);
+
+  animation: ${enterAnim} .header {
+    font-size: 1.4rem;
+  }
+
+  .credentials {
+    font-size: 1.2rem;
+  }
+
+  p {
+    margin: 0;
+  }
+`;

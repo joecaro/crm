@@ -14,6 +14,7 @@ export const LoginContainer = styled.section`
 `;
 
 export const LoginModal = styled.div`
+  position: relative;
   width: 50%;
   max-width: 400px;
   height: fit-content;

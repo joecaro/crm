@@ -33,10 +33,10 @@ export default function Lists(props) {
       setSearch(value.toLowerCase());
     };
   };
-  function toggleModal(item) {
-    dispatch({ type: "toggleModal", payload: item });
-    setIsModal(!isModal);
-  }
+  // function toggleModal(item) {
+  //   dispatch({ type: "toggleModal", payload: item });
+  //   setIsModal(!isModal);
+  // }
 
   useEffect(() => {
     let tempList = [];
