@@ -13,12 +13,12 @@ import {
   DeleteButton,
 } from "./SideElements";
 import { CSVLink } from "react-csv";
-import { ListContext } from "../ListContext/ListContext";
 import convertToDayStr from "../../lib/convertToDayStr";
 import convertGMTDate from "../../lib/convertGMTDate";
+import { useListContext } from "../../Context/ListContext";
 
 const Side = () => {
-  const { list, events, setEvents } = useContext(ListContext);
+  const { list, events, setEvents } = useListContext();
   const [totals, setTotals] = useState({ notStarted: 0, started: 0, filed: 0 });
   const [isDisplayed, setIsDisplayed] = useState(false);
   const [waiting, setWaiting] = useState(false);
@@ -63,23 +63,6 @@ const Side = () => {
       console.log(err);
     }
   };
-
-  //set events
-  useEffect(() => {
-    getEvents()
-      .then((response) => {
-        let templist = [];
-        response.data.forEach((item) => {
-          templist.push(item);
-          setEvents(
-            templist.sort((a, b) => {
-              return new Date(a.start) - new Date(b.start);
-            })
-          );
-        });
-      })
-      .catch((err) => console.log(err));
-  }, []);
 
   //add new event
   const handleSubmitEvent = async (event) => {

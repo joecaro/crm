@@ -7,11 +7,10 @@ import {
 } from "./NavBarElements";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { ListContext } from "../ListContext/ListContext";
+import { useListContext } from "../../Context/ListContext";
 
 const NavBar = () => {
-  const { isLoggedIn, setIsLoggedIn, setNeedData, auth } =
-    useContext(ListContext);
+  const { isLoggedIn, setIsLoggedIn, setNeedData, auth } = useListContext();
   const [isDisplayed, setIsDisplayed] = useState(false);
 
   const router = useRouter();

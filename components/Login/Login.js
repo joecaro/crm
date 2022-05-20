@@ -1,20 +1,20 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { LoginContainer, LoginModal } from "./LoginElements";
 import "../../styles/spin.module.css";
 import { login } from "../../pages/api/index";
 import jwt from "jsonwebtoken";
 import { useRouter } from "next/router";
-import { ListContext } from "../ListContext/ListContext";
 import styled from "styled-components";
 import { keyframes } from "styled-components";
 import { css } from "styled-components";
+import { useListContext } from "../../Context/ListContext";
 
 const Login = (props) => {
   const [values, setValues] = useState({
     username: "",
     password: "",
   });
-  const { setIsLoggedIn, setNeedData, auth } = useContext(ListContext);
+  const { setIsLoggedIn, setNeedData, auth } = useListContext();
   const [isLoggingIn, setIsLoggingIn] = useState(false);
   const router = useRouter();
 

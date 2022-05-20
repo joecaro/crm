@@ -1,9 +1,8 @@
 import Login from "../components/Login/Login";
-import { useContext } from "react";
-import { ListContext } from "../components/ListContext/ListContext";
+import { useListContext } from "../Context/ListContext";
 
 export default function homepage() {
-  const { setNeedData, setIsLoggedIn } = useContext(ListContext);
+  const { setNeedData, setIsLoggedIn } = useListContext();
 
   return <Login setNeedData={setNeedData} setIsLoggedIn={setIsLoggedIn} />;
 }

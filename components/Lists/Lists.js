@@ -12,13 +12,13 @@ import {
   Title,
 } from "./ListsElements";
 import { updateCommittee, updateReport } from "../../pages/api/index";
-import { ListContext } from "../ListContext/ListContext";
 import CreateNewButton from "../CreateNewButton/CreateNewButton";
 import ResetButton from "../ResetButton/ResetButton";
 import SearchBar from "../SearchBar/SearchBar";
+import { useListContext } from "../../Context/ListContext";
 
 export default function Lists(props) {
-  const { allCommittees, setAllCommittees, setList } = useContext(ListContext);
+  const { allCommittees, setAllCommittees, setList } = useListContext();
   const [isDisplayed, setIsDisplayed] = useState({
     notStarted: true,
     started: false,

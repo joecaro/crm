@@ -13,11 +13,11 @@ import {
   LoadingContainer,
 } from "./CommitteeCardElements";
 import { updateStatus } from "../../pages/api/index";
-import { ListContext } from "../ListContext/ListContext";
+import { useListContext } from "../../Context/ListContext";
 
 const CommitteeCard = (props) => {
   const { allCommittees, setAllCommittees, list, setList, isLoading } =
-    useContext(ListContext);
+    useListContext();
   let mounted = true;
   const tryUpdate = async (id, status) => {
     try {

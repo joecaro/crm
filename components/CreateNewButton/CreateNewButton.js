@@ -1,6 +1,6 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
+import { useListContext } from "../../Context/ListContext";
 import { addCommittee } from "../../pages/api/index";
-import { ListContext } from "../ListContext/ListContext";
 import {
   AddButton,
   CreateButtonContainer,
@@ -9,7 +9,7 @@ import {
 } from "./CreateNewButtonElements";
 
 export default function CreateNewButton() {
-  const { allCommittees, setAllCommittees } = useContext(ListContext);
+  const { allCommittees, setAllCommittees } = useListContext();
   const [isSelected, setIsSelected] = useState(false);
   const [committeeInfo, setCommitteeInfo] = useState({
     committeeName: "",

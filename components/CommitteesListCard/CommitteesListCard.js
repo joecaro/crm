@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import { ListContext } from "../ListContext/ListContext";
+import { useListContext } from "../../Context/ListContext";
 import {
   Card,
   CommitteeInfo,
@@ -10,7 +9,7 @@ import {
 } from "./CommitteesListCardElements";
 
 const CommitteesListCard = (props) => {
-  const { list } = useContext(ListContext);
+  const { list } = useListContext();
   return (
     <List>
       {list.map((item) => {

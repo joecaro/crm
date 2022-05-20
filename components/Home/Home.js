@@ -4,16 +4,15 @@ import "./react-big-calendar.module.css";
 import moment from "moment";
 import { CSSTransition } from "react-transition-group";
 
-import { useContext } from "react";
-import { ListContext } from "../ListContext/ListContext";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
+import { useListContext } from "../../Context/ListContext";
 
 const localizer = momentLocalizer(moment);
 
 export default function Home() {
-  const { events, setEvents } = useContext(ListContext);
+  const { events, setEvents } = useListContext();
   const [nextEvents, setNextEvents] = useState(events);
   const [showMessage, setShowMessage] = useState(false);
   const router = useRouter();

@@ -13,8 +13,8 @@ import {
   deleteCommittee,
   getList,
 } from "../../pages/api/index";
-import { ListContext } from "../ListContext/ListContext";
 import CreateNewButton from "../CreateNewButton/CreateNewButton";
+import { useListContext } from "../../Context/ListContext";
 
 const initialState = {
   committeeName: "",
@@ -41,7 +41,7 @@ function reducer(state, action) {
 
 const CommitteesList = () => {
   const { allCommittees, setAllCommittees, list, setList, isLoading } =
-    useContext(ListContext);
+    useListContext();
   const [search, setSearch] = useState("");
   const [isModal, setIsModal] = useState(false);
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -91,7 +91,7 @@ const CommitteesList = () => {
 export default CommitteesList;
 
 function Modal(props) {
-  const { allCommittees, setAllCommittees } = useContext(ListContext);
+  const { allCommittees, setAllCommittees } = useListContext();
   const [committeeInfo, setCommitteeInfo] = useState({
     committeeName: props.state.committeeName,
     filingFrequency: props.state.filingFrequency,

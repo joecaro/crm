@@ -2,11 +2,11 @@ import React, { useContext, useState } from "react";
 import { ResetButtonStyles, Toast } from "./ResetButtonElements";
 import { Reset } from "../../pages/api/index";
 import { CSSTransition } from "react-transition-group";
-import { ListContext } from "../ListContext/ListContext";
+import { useListContext } from "../../Context/ListContext";
 
 export default function ResetButton({ selectedList }) {
   const { allCommittees, setAllCommittees, list, setList, isLoading } =
-    useContext(ListContext);
+    useListContext();
   const [isToastActive, setIsToastActive] = useState(false);
 
   const handleReset = async () => {
