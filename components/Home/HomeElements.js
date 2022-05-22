@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
 export const HomeContainer = styled.section`
-  display: grid;
-  grid-template-rows: 300px 200px 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 100px 40px;
 `;
 
 export const Title = styled.h1`
-  margin: 40px auto;
   @media (max-width: 768px) {
     margin: -50px auto 50px;
   }
@@ -24,7 +25,7 @@ export const TitleCard = styled.div`
   display: grid;
   justify-content: center;
   align-items: center;
-  margin: auto;
+  margin: 0 auto;
 `;
 
 export const Option = styled.div`
@@ -56,7 +57,6 @@ export const EventList = styled.div`
   border-radius: 5px;
   padding: 20px;
   background-color: #eee;
-  margin: 0 40px;
   h2 {
     margin: 0;
     border-bottom: 2px solid #ddd;
