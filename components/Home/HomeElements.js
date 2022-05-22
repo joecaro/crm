@@ -1,24 +1,8 @@
 import styled from "styled-components";
 
 export const HomeContainer = styled.section`
-  position: absolute;
-  width: 60vw;
-  height: 100vh;
-  top: 100px;
-  left: 20vw;
-  transition: 0.4s;
-  overflow-x: visible;
-  @media (max-width: 990px) {
-    width: 50vw;
-    left: 25vw;
-  }
-  @media (max-width: 768px) {
-    width: 80vw;
-    left: 10vw;
-    display: grid;
-    justify-items: center;
-    top: 0;
-  }
+  display: grid;
+  grid-template-rows: 300px 200px 500px;
 `;
 
 export const Title = styled.h1`

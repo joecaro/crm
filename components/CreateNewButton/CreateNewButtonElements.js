@@ -1,29 +1,8 @@
 import styled from "styled-components";
 
 export const CreateButtonContainer = styled.div`
-  height: 20px;
+  height: 26px;
   width: 50px;
-  position: absolute;
-  top: 110px;
-  right: 25vw;
-  @media (max-width: 768px) {
-    top: 30px;
-    right: 70px;
-  }
-`;
-
-export const AddButton = styled.button`
-  border: none;
-  border-radius: 5px;
-  background-color: #0077cc;
-  color: white;
-  font-size: 1.2rem;
-  padding: 2px 10px;
-  outline: none;
-  cursor: pointer;
-  :hover {
-    background-color: #77ccff;
-  }
 `;
 
 export const CreateModal = styled.div`

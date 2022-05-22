@@ -1,51 +1,38 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: calc(100vw - 400px);
+  position: relative;
   height: 100vh;
-  margin: auto;
-  padding: 0 0 6rem;
-  overflow: hidden;
-  @media (min-width: 1250px) {
-    width: calc(100vw - 500px);
-    padding: 20px;
-  }
-  @media (max-width: 768px) {
-    width: 100vw;
-    padding: 20px;
-  }
-`;
-
-export const ListsContainer = styled.section`
-  height: 100%;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-content: flex-start;
-  overflow-x: visible;
+  padding: 20px;
+  margin: auto;
+  display: grid;
+  grid-template-rows: 50px 50px 50px 1fr;
+  gap: 1rem;
+  overflow: hidden;
 `;
 
-export const Title = styled.h1`
-  margin: 100px auto -100px;
-  @media (max-width: 768px) {
-    margin: 30px auto -30px;
-  }
+export const Header = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 0 3rem;
+  align-items: center;
+`;
+
+export const Title = styled.h1``;
+
+export const ListsContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  height: calc(100vh - 150px - 3rem - 40px);
 `;
 
 export const ButtonContainer = styled.div`
   height: 40px;
   width: 100%;
   margin: auto;
-  margin-top: 10vh;
   display: flex;
   justify-content: space-between;
-  @media (max-width: 1025px) {
-    width: 410px;
-  }
-  @media (max-width: 770px) {
-    width: 100%;
-  }
 `;
 
 export const ListButton = styled.span`
@@ -63,11 +50,19 @@ export const ListButton = styled.span`
   p {
     margin: auto;
   }
+
   @media (max-width: 1024px) {
     width: 6em;
     margin: 0;
     background-color: ${({ isDisplayed }) =>
       isDisplayed ? `#ef4737` : `black`};
+  }
+  :hover {
+    cursor: pointer;
+    background: #555;
+  }
+  :active {
+    background: #222;
   }
 `;
 

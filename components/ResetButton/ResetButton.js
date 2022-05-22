@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { ResetButtonStyles, Toast } from "./ResetButtonElements";
+import { ButtonStyles, Toast } from "./ResetButtonElements";
 import { Reset } from "../../pages/api/index";
 import { CSSTransition } from "react-transition-group";
 import { useListContext } from "../../Context/ListContext";
@@ -59,7 +59,7 @@ export default function ResetButton({ selectedList }) {
         unmountOnExit>
         <Toast>{selectedList} committees reset</Toast>
       </CSSTransition>
-      <ResetButtonStyles onClick={() => handleReset()}>Reset</ResetButtonStyles>
+      <ButtonStyles onClick={() => handleReset()}>Reset</ButtonStyles>
     </>
   );
 }

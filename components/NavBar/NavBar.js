@@ -76,7 +76,6 @@ const NavBar = () => {
         </NavBarElements>
         <p onClick={handleLogout}>Log Out</p>
       </NavContainer>
-      <Logo isDisplayed={isDisplayed} />
       <MenuDisplayButton isDisplayed={isDisplayed} onClick={toggleMenu}>
         <i className='bi bi-list'></i>
       </MenuDisplayButton>

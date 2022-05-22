@@ -6,7 +6,6 @@ import {
   ModalBox,
   ModalContainer,
   Form,
-  Title,
 } from "./CommitteesListElements";
 import {
   updateCommittee,
@@ -17,6 +16,7 @@ import CreateNewButton from "../CreateNewButton/CreateNewButton";
 import { useListContext } from "../../Context/ListContext";
 import useModal from "../../hooks/useModal";
 import useSearch from "../../hooks/useSearch";
+import { Header, Title } from "../Lists/ListsElements";
 
 const CommitteesList = () => {
   const { allCommittees, setAllCommittees, list, setList, isLoading } =
@@ -26,16 +26,20 @@ const CommitteesList = () => {
 
   useEffect(() => {
     let tempList = [];
-    allCommittees.filter((committee) =>
-      committee.committeeName.toLowerCase().includes(search)
-    );
+    allCommittees.forEach((item) => {
+      if (!item.committeeName.toLowerCase().includes(search)) {
+        return;
+      } else tempList.push(item);
+    });
     setList(tempList);
   }, [allCommittees, search]);
 
   return (
     <ListContainer>
-      <Title>All Committees</Title>
-      <CreateNewButton />
+      <Header>
+        <Title>All Committees</Title>
+        <CreateNewButton />
+      </Header>
       <SearchBar handleSetSearch={handleSetSearch} />
       <Modal
         state={modalState}

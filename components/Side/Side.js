@@ -178,7 +178,6 @@ const Side = () => {
         </ul>
       </TotalsList>
       <CSVLink {...csvReport}>Export to CSV</CSVLink>
-      <TopBar isDisplayed={isDisplayed} />
       <SideDisplayButton isDisplayed={isDisplayed} onClick={toggleMenu}>
         <i className='bi bi-menu-up'></i>
       </SideDisplayButton>

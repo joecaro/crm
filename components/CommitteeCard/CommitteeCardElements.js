@@ -126,12 +126,9 @@ export const Circle = styled.div`
 `;
 
 export const List = styled.ul`
+  margin: 0 auto;
   padding: 0;
-  height: 90%;
-  width: 31%;
-  margin: 0 1%;
   overflow-y: scroll;
-  overflow-x: hidden;
   @media (max-width: 1024px) {
     display: ${({ isDisplayed }) => (isDisplayed ? `block` : `none`)};
     width: 100%;

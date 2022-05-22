@@ -1,17 +1,10 @@
 import styled from "styled-components";
 
 export const ListContainer = styled.section`
-  width: 60vw;
   height: 100vh;
   margin: auto;
-  transition: 0.4s;
-  overflow-x: visible;
-  @media (max-width: 990px) {
-    width: 50vw;
-  }
-  @media (max-width: 768px) {
-    width: 80vw;
-  }
+  display: grid;
+  grid-template-rows: 150px 50px 1fr;
 `;
 
 export const Title = styled.h1`

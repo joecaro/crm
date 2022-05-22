@@ -2,20 +2,21 @@ import styled from "styled-components";
 
 export const NavContainer = styled.section`
   height: 100vh;
-  width: 250px;
   position: fixed;
   top: 0;
-  background-color: #111;
+  background-color: #333;
   display: flex;
   flex-direction: column;
   transition: 0.4s;
   color: white;
   z-index: 10;
-  @media (max-width: 1250px) {
-    width: 200px;
+  @media (min-width: 1250px) {
+    position: relative;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 1250px) {
     margin-left: ${({ isDisplayed }) => (isDisplayed ? `0` : `-200px`)};
+    width: 200px;
+    z-index: 9;
   }
   p {
     color: white;
@@ -32,22 +33,8 @@ export const MenuDisplayButton = styled.div`
   color: ${({ isDisplayed }) => (isDisplayed ? `white` : `black`)};
   z-index: ${({ isDisplayed }) => (isDisplayed ? `11` : `1`)};
   transition: 0.4s;
-  @media (min-width: 768px) {
+  @media (min-width: 1250px) {
     display: none;
-  }
-`;
-
-export const Logo = styled.div`
-  position: fixed;
-  top: 0;
-  height: 75px;
-  width: 100vw;
-  transition: 0.4s;
-  z-index: 11;
-  background-color: #ef4737;
-  @media (max-width: 768px) {
-    left: ${({ isDisplayed }) => (isDisplayed ? `0` : `-200px`)};
-    width: 200px;
   }
 `;
 

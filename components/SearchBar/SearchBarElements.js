@@ -1,10 +1,6 @@
 import styled from "styled-components";
 
 export const SearchBarContainer = styled.section`
-  position: absolute;
-  left: -10vw;
-  top: 15px;
-  width: 100%;
   height: 4vh;
   display: flex;
   justify-content: center;

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useListContext } from "../../Context/ListContext";
 import { addCommittee } from "../../pages/api/index";
+import { ButtonStyles } from "../ResetButton/ResetButtonElements";
 import {
-  AddButton,
   CreateButtonContainer,
   CreateModal,
   Form,
@@ -47,7 +47,9 @@ export default function CreateNewButton() {
   };
   return (
     <CreateButtonContainer>
-      <AddButton onClick={() => setIsSelected(!isSelected)}>Add</AddButton>
+      <ButtonStyles onClick={() => setIsSelected(!isSelected)}>
+        Add
+      </ButtonStyles>
       <CreateModal isSelected={isSelected}>
         <h3>Create New Committee</h3>
         <Form key={"createForm"}>

@@ -10,6 +10,7 @@ import {
   ModalBox,
   ModalContainer,
   Title,
+  Header,
 } from "./ListsElements";
 import { updateCommittee, updateReport } from "../../pages/api/index";
 import CreateNewButton from "../CreateNewButton/CreateNewButton";
@@ -86,15 +87,20 @@ export default function Lists(props) {
         setAllCommittees={setAllCommittees}
         allCommittees={allCommittees}
       />
-      <Title>
-        {props.selectedList === "monthly"
-          ? "Monthly"
-          : props.selectedList === "quarterly"
-          ? "Quarterly"
-          : "Semi-Annual"}
-      </Title>
-      <CreateNewButton />
-      <ResetButton selectedList={props.selectedList} />
+      <Header>
+        <Title>
+          {props.selectedList === "monthly"
+            ? "Monthly"
+            : props.selectedList === "quarterly"
+            ? "Quarterly"
+            : "Semi-Annual"}
+        </Title>
+        <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+          <ResetButton selectedList={props.selectedList} />
+          <CreateNewButton />
+        </div>
+      </Header>
+      <SearchBar handleSetSearch={handleSetSearch} />
       <ButtonContainer>
         <ListButton isDisplayed={isDisplayed.notStarted} onClick={toggleNot}>
           <p>Not Started</p>
@@ -107,8 +113,6 @@ export default function Lists(props) {
         </ListButton>
       </ButtonContainer>
       <ListsContainer>
-        <SearchBar handleSetSearch={handleSetSearch} />
-
         <CommitteeCard
           allCommittees={allCommittees}
           status={1}
