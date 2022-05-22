@@ -121,47 +121,45 @@ const Side = () => {
 
   return (
     <SideContainer isDisplayed={isDisplayed}>
-      <CalendarContainer isDisplayed={isDisplayed}>
-        <EventForm>
-          <CalendarInput onSubmit={handleSubmitEvent}>
-            <span>{new Date().toDateString()}</span>
-            <span>
-              <label>Date: </label>
-              <input
-                value={formValues.date}
-                type={"date"}
-                onChange={({ target: { value } }) => {
-                  setFormValues({ ...formValues, date: value });
-                }}
-              />
-            </span>
-            <span>
-              <label>Event: </label>
-              <input
-                value={formValues.title}
-                onChange={({ target: { value } }) =>
-                  setFormValues({ ...formValues, title: value })
-                }></input>
-            </span>
-            <span>
-              <button type={`submit`}>Save</button>
-            </span>
-          </CalendarInput>
-        </EventForm>
-        <EventsContainer>
-          {events.map((event, index) => {
-            return (
-              <Event key={`${index}+date`}>
-                <DeleteButton onClick={() => handleDeleteEvent(event._id)}>
-                  x
-                </DeleteButton>
-                <h4>{event.title}</h4>
-                <p>{event.day}</p>
-              </Event>
-            );
-          })}
-        </EventsContainer>
-      </CalendarContainer>
+      <EventForm onSubmit={handleSubmitEvent}>
+        <span>{new Date().toDateString()}</span>
+        <label htmlFor='date'>
+          Date:
+          <input
+            id='date'
+            name='date'
+            value={formValues.date}
+            type={"date"}
+            onChange={({ target: { value } }) => {
+              setFormValues({ ...formValues, date: value });
+            }}
+          />
+        </label>
+        <label htmlFor='title'>
+          Event:
+          <input
+            id='title'
+            name='title'
+            value={formValues.title}
+            onChange={({ target: { value } }) =>
+              setFormValues({ ...formValues, title: value })
+            }></input>
+        </label>
+        <button type={`submit`}>Save</button>
+      </EventForm>
+      <EventsContainer>
+        {events.map((event, index) => {
+          return (
+            <Event key={`${index}+date`}>
+              <DeleteButton onClick={() => handleDeleteEvent(event._id)}>
+                x
+              </DeleteButton>
+              <h4>{event.title}</h4>
+              <p>{event.day}</p>
+            </Event>
+          );
+        })}
+      </EventsContainer>
       <TotalsList>
         <ul>
           <li key={"notstarted"}>

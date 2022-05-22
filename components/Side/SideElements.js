@@ -5,11 +5,15 @@ export const SideContainer = styled.section`
   position: fixed;
   top: 0;
   right: 0;
+
   display: flex;
   flex-direction: column;
+  gap: 2rem;
   transition: 0.4s;
   z-index: 10;
   background-color: #efefef;
+  padding: 30% 0;
+
   a {
     text-decoration: none;
     background-color: #0077cc;
@@ -34,7 +38,7 @@ export const SideContainer = styled.section`
   }
 `;
 
-export const CalendarContainer = styled.section`
+export const CalendarContainer = styled.div`
   margin-top: 18vh;
   padding: 10px;
   @media (max-width: 768px) {
@@ -43,58 +47,31 @@ export const CalendarContainer = styled.section`
   }
 `;
 
-export const EventForm = styled.div`
-  height: 10vh;
-
-  form {
-    display: grid;
-    gap: 1rem;
-  }
-`;
-
-export const CalendarInput = styled.form`
-  height: 5rem;
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  @media (max-width: 768px) {
-    margin-bottom: 10px;
-  }
+export const EventForm = styled.form`
+  display: grid;
+  gap: 1rem;
+  padding: 0.5rem;
   span {
-    width: 100%;
-    display: flex;
-    align-items: center;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #888;
   }
   label {
+    display: grid;
     font-weight: 600;
   }
-  button {
-    margin-top: 5px;
-    margin-left: 80%;
-    border: none;
-    background-color: #ef4737;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    :hover {
-      background-color: #e96780;
-    }
-    @media (max-width: 768px) {
-      font-size: 1rem;
-    }
-  }
   input {
+    font-size: 1rem;
+  }
+  button {
+    width: fit-content;
+    font-size: 1rem;
+    background-color: #0077cc;
     border: none;
-    border-radius: 0;
-    outline: none;
-    text-align: center;
-    font-size: 1.1rem;
-    width: 80%;
-    min-width: 80%;
-    border-bottom: 1px solid black;
-    @media (max-width: 768px) {
-      margin-bottom: 10px;
-    }
+    border-radius: 0.25rem;
+    padding: 0.25rem 0.5rem;
+    color: white;
+    justify-self: end;
   }
 `;
 
@@ -133,8 +110,6 @@ export const TotalsList = styled.div`
   border-radius: 10px;
   height: 170px;
   width: 80%;
-  margin-left: 10%;
-  margin-top: 8vh;
   ul {
     margin-left: -40px;
   }
