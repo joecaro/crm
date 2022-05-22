@@ -58,6 +58,7 @@ export default function Home() {
           flexWrap: "wrap",
           justifyContent: "center",
           padding: "30px",
+          gap: "1rem",
         }}>
         <CSSTransition
           in={showMessage}

@@ -29,25 +29,25 @@ export const TitleCard = styled.div`
 `;
 
 export const Option = styled.div`
-  width: 25%;
-  min-width: 180px;
-  aspect-ratio: 3;
   box-shadow: 0 0 10px #00000055;
-  background-color: #ef473755;
+  background-color: #ffc7c2;
   border-radius: 50px;
   box-shadow: 0 0 20px #00000022;
   font-size: 1.5rem;
   font-weight: 700;
   color: #333;
   display: grid;
-  justify-content: center;
-  align-items: center;
+
+  padding: 0.75rem 1.5rem;
+
   cursor: pointer;
-  transition: 0.2s ease-out;
-  margin: 10px;
+  transition: 100ms;
   :hover {
     background-color: #ef4737;
     color: #000;
+  }
+  :active {
+    background-color: #ffb2ab;
   }
 `;
 
