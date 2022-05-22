@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { css } from "styled-components";
+import { keyframes } from "styled-components";
 
 export const LoginContainer = styled.section`
   position: absolute;
@@ -53,10 +55,26 @@ export const LoginModal = styled.div`
       isLoggingIn ? "#00000000" : "#c75e32"};
     color: white;
     font-size: ${({ isLoggingIn }) => (isLoggingIn ? "1.5rem" : "1rem")};
-    cursor: pointer;
+    cursor: ${({ isLoggingIn }) => (isLoggingIn ? "not-allowed" : "pointer")};
     :hover {
       background-color: ${({ isLoggingIn }) =>
         isLoggingIn ? "#00000000" : "#e97f54"};
     }
+    animation: ${({ isLoggingIn }) => (isLoggingIn ? spinningAnimation : "")};
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
   }
+`;
+
+const spinningKeyframes = keyframes`
+0% {
+  transform: rotate(0deg);
+}
+100% {
+  transform: rotate(360deg);
+}
+`;
+
+const spinningAnimation = (props) => css`
+  ${spinningKeyframes} 1s
 `;

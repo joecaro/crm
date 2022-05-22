@@ -80,7 +80,7 @@ const Login = (props) => {
             type={"password"}
             onChange={set("password")}
           />
-          <button onClick={handleLogin}>
+          <button disabled={isLoggingIn} onClick={handleLogin}>
             {isLoggingIn ? (
               <i className='spin bi bi-arrow-clockwise'></i>
             ) : (
