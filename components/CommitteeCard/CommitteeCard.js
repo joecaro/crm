@@ -18,7 +18,9 @@ import { useListContext } from "../../Context/ListContext";
 const CommitteeCard = (props) => {
   const { allCommittees, setAllCommittees, list, setList, isLoading } =
     useListContext();
+
   let mounted = true;
+
   const tryUpdate = async (id, status) => {
     try {
       await updateStatus(id, status);

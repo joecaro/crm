@@ -2,15 +2,10 @@ import React, { useState } from "react";
 import { ContentContainer } from "./ContentElements";
 import Lists from "../Lists/Lists";
 import SearchBar from "../SearchBar/SearchBar";
+import useSearch from "../../hooks/useSearch";
 
 const Content = (props) => {
-  const [search, setSearch] = useState("");
-
-  const handleSetSearch = (event) => {
-    return ({ target: { value } }) => {
-      setSearch(value.toLowerCase());
-    };
-  };
+  const [search, handleSetSearch] = useSearch();
   return (
     <ContentContainer>
       <SearchBar handleSetSearch={handleSetSearch} />

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext, useReducer } from "react";
+import React, { useEffect, useState } from "react";
 import CommitteesListCard from "../CommitteesListCard/CommitteesListCard";
 import SearchBar from "../SearchBar/SearchBar";
 import {
@@ -15,54 +15,20 @@ import {
 } from "../../pages/api/index";
 import CreateNewButton from "../CreateNewButton/CreateNewButton";
 import { useListContext } from "../../Context/ListContext";
-
-const initialState = {
-  committeeName: "",
-  filingFrequency: "",
-  poc: "",
-  pocEmail: "",
-};
-
-function reducer(state, action) {
-  switch (action.type) {
-    case "toggleModal":
-      return action.payload;
-    case "closeModal":
-      return {
-        committeeName: "",
-        filingFrequency: "",
-        poc: "",
-        pocEmail: "",
-      };
-    default:
-      throw new Error();
-  }
-}
+import useModal from "../../hooks/useModal";
+import useSearch from "../../hooks/useSearch";
 
 const CommitteesList = () => {
   const { allCommittees, setAllCommittees, list, setList, isLoading } =
     useListContext();
-  const [search, setSearch] = useState("");
-  const [isModal, setIsModal] = useState(false);
-  const [state, dispatch] = useReducer(reducer, initialState);
-
-  const handleSetSearch = (event) => {
-    return ({ target: { value } }) => {
-      setSearch(value.toLowerCase());
-    };
-  };
-  function toggleModal(item) {
-    dispatch({ type: "toggleModal", payload: item });
-    setIsModal(!isModal);
-  }
+  const [isModal, modalState, toggleModal] = useModal();
+  const [search, handleSetSearch] = useSearch();
 
   useEffect(() => {
     let tempList = [];
-    allCommittees.forEach((item) => {
-      if (!item.committeeName.toLowerCase().includes(search)) {
-        return;
-      } else tempList.push(item);
-    });
+    allCommittees.filter((committee) =>
+      committee.committeeName.toLowerCase().includes(search)
+    );
     setList(tempList);
   }, [allCommittees, search]);
 
@@ -72,7 +38,7 @@ const CommitteesList = () => {
       <CreateNewButton />
       <SearchBar handleSetSearch={handleSetSearch} />
       <Modal
-        state={state}
+        state={modalState}
         isModal={isModal}
         toggleModal={toggleModal}
         setAllCommittees={setAllCommittees}
@@ -90,7 +56,7 @@ const CommitteesList = () => {
 
 export default CommitteesList;
 
-function Modal(props) {
+const Modal = (props) => {
   const { allCommittees, setAllCommittees } = useListContext();
   const [committeeInfo, setCommitteeInfo] = useState({
     committeeName: props.state.committeeName,
@@ -212,4 +178,4 @@ function Modal(props) {
       </ModalBox>
     </ModalContainer>
   );
-}
+};
