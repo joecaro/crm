@@ -126,6 +126,7 @@ export const Circle = styled.div`
 `;
 
 export const List = styled.ul`
+  width: 100%;
   margin: 0 auto;
   padding: 0;
   overflow-y: scroll;
