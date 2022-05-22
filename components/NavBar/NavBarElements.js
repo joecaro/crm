@@ -9,13 +9,13 @@ export const NavContainer = styled.section`
   flex-direction: column;
   transition: 0.4s;
   color: white;
-  z-index: 10;
+  z-index: 99;
   @media (min-width: 1250px) {
     position: relative;
   }
   @media (max-width: 1250px) {
-    margin-left: ${({ isDisplayed }) => (isDisplayed ? `0` : `-200px`)};
-    width: 200px;
+    margin-left: ${({ isDisplayed }) => (isDisplayed ? `0` : `-250px`)};
+    width: 250px;
     z-index: 9;
   }
   p {

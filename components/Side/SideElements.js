@@ -10,7 +10,7 @@ export const SideContainer = styled.section`
   flex-direction: column;
   gap: 2rem;
   transition: 0.4s;
-  z-index: 10;
+  z-index: 99;
   background-color: #efefef;
   padding: 30% 0;
 
