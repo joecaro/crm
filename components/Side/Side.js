@@ -148,7 +148,7 @@ const Side = () => {
         <button type={`submit`}>Save</button>
       </EventForm>
       <div>
-        <p>Events</p>
+        <p className='heading'>Events</p>
         <EventsContainer>
           {events.map((event, index) => {
             return (

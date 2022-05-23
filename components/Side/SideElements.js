@@ -16,6 +16,12 @@ export const SideContainer = styled.section`
 
   overflow-y: scroll;
 
+  .heading {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #888;
+    margin: 0 0.5rem;
+  }
   a {
     text-decoration: none;
     background-color: #0077cc;
@@ -40,7 +46,6 @@ export const SideContainer = styled.section`
   }
   p {
     margin: 0;
-    padding: 0.5rem;
   }
 `;
 
@@ -90,7 +95,7 @@ export const EventsContainer = styled.div`
   gap: 1rem;
   overflow: scroll;
   background-color: white;
-  border: 4px solid #efefef;
+  border: 0.5rem solid #efefef;
   padding: 0.5rem;
 `;
 export const Event = styled.object`
