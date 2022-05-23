@@ -34,15 +34,13 @@ export default function Home() {
     setTimeout(() => {
       setShowMessage(true);
     }, 500);
-
-    let nextEvents = [];
-
-    events.forEach((event, idx) => {
-      if (idx < 5) nextEvents.push(event);
-    });
-
-    setNextEvents(nextEvents);
   }, []);
+
+  useEffect(() => {
+    let nextEvents = events.slice(0, 5);
+    setNextEvents(nextEvents);
+  }, [events]);
+
   return (
     <HomeContainer>
       <CSSTransition
