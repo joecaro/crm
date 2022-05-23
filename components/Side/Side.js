@@ -147,19 +147,26 @@ const Side = () => {
         </label>
         <button type={`submit`}>Save</button>
       </EventForm>
-      <EventsContainer>
-        {events.map((event, index) => {
-          return (
-            <Event key={`${index}+date`}>
-              <DeleteButton onClick={() => handleDeleteEvent(event._id)}>
-                x
-              </DeleteButton>
-              <h4>{event.title}</h4>
-              <p>{event.day}</p>
-            </Event>
-          );
-        })}
-      </EventsContainer>
+      <div>
+        <p>Events</p>
+        <EventsContainer>
+          {events.map((event, index) => {
+            return (
+              <Event key={`${index}+date`}>
+                <div className='header'>
+                  <h4>{event.title}</h4>
+                  <button
+                    className='delete-button'
+                    onClick={() => handleDeleteEvent(event._id)}>
+                    x
+                  </button>
+                </div>
+                <p>{event.day}</p>
+              </Event>
+            );
+          })}
+        </EventsContainer>
+      </div>
       <TotalsList>
         <ul>
           <li key={"notstarted"}>

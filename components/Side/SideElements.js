@@ -14,6 +14,8 @@ export const SideContainer = styled.section`
   background-color: #efefef;
   padding: 30% 0;
 
+  overflow-y: scroll;
+
   a {
     text-decoration: none;
     background-color: #0077cc;
@@ -35,6 +37,10 @@ export const SideContainer = styled.section`
     box-shadow: inset 0 0 2px #666;
     width: 100%;
     padding: 0 10%;
+  }
+  p {
+    margin: 0;
+    padding: 0.5rem;
   }
 `;
 
@@ -76,26 +82,39 @@ export const EventForm = styled.form`
 `;
 
 export const EventsContainer = styled.div`
-  height: 25vh;
+  height: clamp(100px, 30vh, 600px);
   width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 1rem;
   overflow: scroll;
   background-color: white;
-  @media (max-height: 870px) {
-    margin-top: 50px;
-  }
+  border: 4px solid #efefef;
+  padding: 0.5rem;
 `;
 export const Event = styled.object`
-  height: 7vh;
   width: 90%;
   background-color: #ddd;
-  border-radius: 10px;
-  margin: 5px auto;
+  border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
+
+  .delete-button {
+    align-self: flex-end;
+    border: none;
+    font-size: 1.5rem;
+    align-self: flex-start;
+    border-top-right-radius: 0.5rem;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+  }
   h4 {
-    margin: 0 10px;
+    margin: 0.5rem 0.5rem;
   }
   p {
     margin: auto;
@@ -108,8 +127,8 @@ export const Event = styled.object`
 export const TotalsList = styled.div`
   background-color: #ef4737;
   border-radius: 10px;
-  height: 170px;
   width: 80%;
+  margin: 0 auto;
   ul {
     margin-left: -40px;
   }
@@ -149,9 +168,4 @@ export const SideDisplayButton = styled.div`
   @media (min-width: 1250px) {
     display: none;
   }
-`;
-
-export const DeleteButton = styled.button`
-  align-self: flex-end;
-  border: none;
 `;
